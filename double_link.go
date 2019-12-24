@@ -17,7 +17,7 @@ func main() {
 	p2 := &PeoNode2{Name: "p2", Age: 12, Num: 2}
 	p3 := &PeoNode2{Name: "p3", Age: 13, Num: 3}
 	p4 := &PeoNode2{Name: "p4", Age: 14, Num: 4}
-
+	showDLink(head)
 	insertDLink2(head, p3)
 	insertDLink2(head, p1)
 	insertDLink2(head, p2)
