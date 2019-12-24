@@ -71,12 +71,13 @@ func ShowCLink(head *CNode) {
 func DelCNode(head *CNode, i int) *CNode {
 	tmp := head
 	del := false
-
+	// 只有一个node，并且删除，返回空link
 	if tmp.Next == head && tmp.On == i {
 		head.Next = nil
 		return head
 	}
 
+	//删除head ，需要重新找一个head返回
 	if head.On == i {
 		head.On = head.Next.On
 		head.Name = head.Next.Name
@@ -94,6 +95,8 @@ func DelCNode(head *CNode, i int) *CNode {
 			break
 		}
 	}
+
+	//正常删除
 
 	if del {
 		tmp.Next = tmp.Next.Next
