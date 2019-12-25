@@ -13,7 +13,9 @@
 -  单环链表 [circle_link](https://github.com/miiniper/data_structure/blob/master/circle_link.go)
 
 ## examples
--  约瑟夫问题:单循环链表实现：[Josephus](https://github.com/miiniper/data_structure/blob/master/circle_link.go)
+-  约瑟夫问题:单循环链表实现：[Josephus](https://github.com/miiniper/data_structure/blob/master/examples/josephus.go)
+
+
 
 持续更新中。。。。。。
 
