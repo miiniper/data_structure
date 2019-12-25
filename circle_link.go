@@ -8,7 +8,7 @@ import (
 type CNode struct {
 	On   int    `json:"on"`
 	Name string `json:"name"`
-	Next *CNode
+	Next *CNode `json:"next"`
 }
 
 func main() {

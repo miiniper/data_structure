@@ -4,7 +4,7 @@
 # This is a learn data structure with golang repo
 ## 稀疏数组 
 - 稀疏数组 [sparsearray](https://github.com/miiniper/data_structure/blob/master/sparsearray.go)
-## 队列
+## 队列 (先进先出)
 -  简单队 [queue_array](https://github.com/miiniper/data_structure/blob/master/queuearray.go)
 -  环形队 [circle_queus](https://github.com/miiniper/data_structure/blob/master/circle_queue.go)
 ## 链表
@@ -12,6 +12,8 @@
 -  双链表 [double_link](https://github.com/miiniper/data_structure/blob/master/double_link.go)
 -  单环链表 [circle_link](https://github.com/miiniper/data_structure/blob/master/circle_link.go)
 
+## examples
+-  约瑟夫问题:单循环链表实现：[Josephus](https://github.com/miiniper/data_structure/blob/master/circle_link.go)
 
 持续更新中。。。。。。
 
