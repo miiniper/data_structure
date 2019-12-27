@@ -6,12 +6,49 @@ import (
 
 func main() {
 	fmt.Println("##################sort##########################")
-	aa := []int{1, 3, 321, 45, 788, 12, 38, 425, 436, 233, 88, 32, 9, 65, 25, 27, 56}
-	fmt.Println("初始化：    ", aa)
-	fmt.Println("倒序：      ", SelectSort(aa))
+	aa := []int{30, 1, 321, 45, 788, 12, 38, 425, 436, 233, 88, 32, 9, 65, 25, 27, 56}
+	fmt.Println(aa)
+	//fmt.Println("select倒序：      ", SelectSort(aa))
 	//	fmt.Println("再查看aaa   ", aa)
-	fmt.Println("正序：      ", SelectSort2(aa))
+	//fmt.Println("select正序：      ", SelectSort2(aa))
 	//	fmt.Println("再查看aaa   ", aa)
+	//	InsertSort(aa)
+	//InsertSort2(aa)
+	fmt.Println(aa)
+
+}
+
+//插入，正序
+func InsertSort(array []int) {
+
+	for i := 1; i < len(array); i++ {
+		for j := i; j > 0; j-- {
+			if array[j] < array[j-1] { //当前元素和前一个比较，小于就交换位置
+				array[j], array[j-1] = array[j-1], array[j]
+			} else {
+				break
+			}
+		}
+	}
+
+	fmt.Println(array)
+
+}
+
+//插入，倒序
+func InsertSort2(array []int) {
+
+	for i := 0; i < len(array); i++ {
+		for j := i; j > 0; j-- {
+			if array[j] > array[j-1] {
+				array[j], array[j-1] = array[j-1], array[j]
+			} else {
+				break
+			}
+		}
+	}
+
+	fmt.Println(array)
 
 }
 
