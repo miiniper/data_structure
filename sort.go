@@ -6,16 +6,67 @@ import (
 
 func main() {
 	fmt.Println("##################sort##########################")
-	aa := []int{30, 1, 321, 45, 788, 12, 38, 425, 436, 233, 88, 32, 9, 65, 25, 27, 56}
+	//aa := []int{30, 61, 321, 45, 788, 12, 38, 425, 436, 233, 88, 32, 9, 65, 25, 27, 56}
+	aa := []int{3, 6, 9, 2, 5, 8, 1, 4, 7}
 	fmt.Println(aa)
 	//fmt.Println("select倒序：      ", SelectSort(aa))
 	//	fmt.Println("再查看aaa   ", aa)
 	//fmt.Println("select正序：      ", SelectSort2(aa))
 	//	fmt.Println("再查看aaa   ", aa)
-	//	InsertSort(aa)
+	//InsertSort(aa)
 	//InsertSort2(aa)
+	//fmt.Println(aa)
+	QuickSort2(aa, 0, len(aa)-1)
 	fmt.Println(aa)
 
+}
+
+//快速排序，正序
+func QuickSort(array []int, left, right int) {
+	//	a := array
+	if left >= right {
+		return
+	}
+	explodeIndex := left
+	for i := left + 1; i <= right; i++ {
+		if array[left] >= array[i] {
+			explodeIndex++
+			array[i], array[explodeIndex] = array[explodeIndex], array[i]
+		}
+		fmt.Println(array)
+	}
+
+	array[left], array[explodeIndex] = array[explodeIndex], array[left]
+
+	//fmt.Println("***************************进入左递归*****************************")
+
+	QuickSort(array, left, explodeIndex-1)
+	//fmt.Println("###########################进入右递归#############################")
+	QuickSort(array, explodeIndex+1, right)
+}
+
+//快速排序，倒序
+func QuickSort2(array []int, left, right int) {
+	//	a := array
+	if left >= right {
+		return
+	}
+	explodeIndex := left
+	for i := left + 1; i <= right; i++ {
+		if array[left] <= array[i] {
+			explodeIndex++
+			array[i], array[explodeIndex] = array[explodeIndex], array[i]
+		}
+		fmt.Println(array)
+	}
+
+	array[left], array[explodeIndex] = array[explodeIndex], array[left]
+
+	//fmt.Println("***************************进入左递归*****************************")
+
+	QuickSort2(array, left, explodeIndex-1)
+	//fmt.Println("###########################进入右递归#############################")
+	QuickSort2(array, explodeIndex+1, right)
 }
 
 //插入，正序
@@ -29,6 +80,7 @@ func InsertSort(array []int) {
 				break
 			}
 		}
+		//fmt.Println(array)
 	}
 
 	fmt.Println(array)
