@@ -1,4 +1,14 @@
+package main
+
+import "fmt"
+
 //稀疏数组
+
+type ValNode struct {
+	Col int
+	Row int
+	Val int
+}
 
 func main() {
 	fmt.Println("    ###############SparseArray########################    ")
