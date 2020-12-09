@@ -10,3 +10,6 @@ E((78))--R---F((89))
 F((89))--R---G((90))
 C((114))--R---I((123))
 ```
+
+
+![btree](https://github.com/miiniper/data_structure/blob/master/img/btree.jpg)
