@@ -1,9 +1,7 @@
 //二叉树 binary tree
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type Node struct {
 	Data  int
@@ -27,7 +25,7 @@ func NewNode(data int) *Node {
 //new b tree
 func NewTree() *Node {
 	var tree *Node
-	va := []int{1, 114, 62, 123, 78, 45, 43, 89, 90}
+	va := []int{100, 114, 62, 123, 78, 45, 43, 70, 89, 90}
 	for _, i := range va {
 		tree = TreeAdd(tree, i)
 	}
@@ -41,23 +39,26 @@ func TreeAdd(t *Node, v int) *Node {
 	}
 	if v <= t.Data {
 		t.Left = TreeAdd(t.Left, v)
+	} else {
+		t.Right = TreeAdd(t.Right, v)
 	}
-	t.Right = TreeAdd(t.Right, v)
-	return t
-}
 
-func main() {
-	t1 := NewTree()
-	PreTree(t1)
-	//fmt.Println(t1.Data)
+	return t
 }
 
 func PreTree(t *Node) {
 	if t == nil {
 		return
 	}
-	PreTree(t.Left)
+	//PreTree(t.Left)
 	fmt.Println(t.Data)
-	//	PreTree(t.Left)
+	PreTree(t.Left)
 	PreTree(t.Right)
+	//fmt.Println(t.Data)
+}
+
+func main() {
+	t1 := NewTree()
+	PreTree(t1)
+	//fmt.Println(t1.Data)
 }

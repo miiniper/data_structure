@@ -11,7 +11,8 @@
 -  单链表 [single_link](https://github.com/miiniper/data_structure/blob/master/single_link.go)
 -  双链表 [double_link](https://github.com/miiniper/data_structure/blob/master/double_link.go)
 -  单环链表 [circle_link](https://github.com/miiniper/data_structure/blob/master/circle_link.go)
-
+## 树
+- 二叉树 [Btree](https://github.com/miiniper/data_structure/blob/master/tree/btree.go)
 
 ## 排序 [sort](https://github.com/miiniper/data_structure/blob/master/sort.go)
 - 选择排序
