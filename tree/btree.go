@@ -18,7 +18,7 @@ type Node struct {
 //后序遍历：左右根
 //查找1
 //修改
-//删除
+//删除1
 //插入1
 //建树1
 //深度（层数）1
@@ -127,7 +127,7 @@ func Bfs(t *Node) {
 			if q[0].Right != nil {
 				q = append(q, q[0].Right)
 			}
-			fmt.Println(q[0].Data)
+			fmt.Printf("%d,", q[0].Data)
 			q = q[1:]
 		}
 	}
@@ -172,8 +172,49 @@ func (t *Node) TSearch(data int) (error, *Node) {
 	return t.Right.TSearch(data)
 }
 
-//修改
+//修改：先删除在插入
 //删除
+//第一种情况，删除的是根节点，且根节点没有儿子，直接删除即可。
+//第二种情况，删除的节点有父亲节点，但没有子树，也就是删除的是叶子节点，直接删除即可。
+//第三种情况，删除的节点只有一个子树，那么该子树直接替换被删除的节点即可。
+//第四种情况，删除的节点下有两个子树，因为右子树的值都比左子树大，那么用右子树中的最小元素来替换删除的节点，
+//这时二叉查找树的性质又满足了。右子树的最小元素，只要一直往右子树的左边一直找一直找就可以找到。
+func DeleteNode(t, data *Node) *Node {
+	if t == nil {
+		return nil
+	}
+	if data.Data < t.Data {
+		//left todo
+		t.Left = DeleteNode(t.Left, data)
+		return t
+	}
+	if data.Data > t.Data {
+		//right todo
+		t.Right = DeleteNode(t.Right, data)
+		return t
+	}
+	//只有根
+	if t.Left == nil && t.Right == nil {
+		return nil
+	}
+	//存在右子树
+	if t.Left == nil && t.Right != nil {
+		t = t.Right
+		return t
+	}
+	//存在左子树
+	if t.Right == nil && t.Left != nil {
+		t = t.Left
+		return t
+	}
+	//左右子树都存在，找到右子树最左节点替换
+	index := t.Right.MinNode()
+	fmt.Println("====", index.Data)
+	t.Data = index.Data
+	t.Right = DeleteNode(t.Right, t)
+	return t
+
+}
 
 //树的高度
 func (t *Node) Depth() int {
@@ -207,7 +248,7 @@ func (t *Node) MinNode() *Node {
 }
 
 //测试数组
-var array = []int{100, 114, 62, 123, 78, 45, 43, 70, 89, 90, 3, 7539}
+var array = []int{100, 114, 62, 123, 78, 45, 43, 70, 89, 90}
 
 //test search demo
 func demoSearch(t *Node) {
@@ -219,15 +260,24 @@ func demoSearch(t *Node) {
 	fmt.Println("search ", t2.Data)
 
 }
+
+func demoDelete(t *Node) {
+	d := NewNode(78)
+	t2 := DeleteNode(t, d)
+	Bfs(t2)
+}
+
 func main() {
 	t1 := NewT()
 	t1.NewTreeArr(array)
 	//PTree(t1)
 	Bfs(t1)
-	demoSearch(t1)
-	fmt.Println("minV == ", t1.MinNode().Data)
-	fmt.Println("maxV == ", t1.MaxNode().Data)
-	fmt.Println("depth == ", t1.Depth())
-	fmt.Println("width == ", t1.Width())
+	//demoSearch(t1)
+	//fmt.Println("minV == ", t1.MinNode().Data)
+	//fmt.Println("maxV == ", t1.MaxNode().Data)
+	//fmt.Println("depth == ", t1.Depth())
+	//fmt.Println("width == ", t1.Width())
+	fmt.Println()
+	demoDelete(t1)
 
 }
