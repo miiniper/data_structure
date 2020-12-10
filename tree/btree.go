@@ -247,9 +247,6 @@ func (t *Node) MinNode() *Node {
 	return t.Left.MinNode()
 }
 
-//测试数组
-var array = []int{100, 114, 62, 123, 78, 45, 43, 70, 89, 90}
-
 //test search demo
 func demoSearch(t *Node) {
 	err, t2 := t.TSearch(90)
@@ -266,6 +263,9 @@ func demoDelete(t *Node) {
 	t2 := DeleteNode(t, d)
 	Bfs(t2)
 }
+
+//测试数组
+var array = []int{100, 114, 62, 123, 78, 45, 43, 70, 89, 90}
 
 func main() {
 	t1 := NewT()

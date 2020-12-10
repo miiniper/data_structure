@@ -1,5 +1,6 @@
 // single queue
 // front和rear 指向不包含首的元素
+//先进先出
 package main
 
 import (

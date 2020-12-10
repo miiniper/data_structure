@@ -1,3 +1,6 @@
+//线性表
+//插入删除优越，查找性能差
+
 package main
 
 import "fmt"
@@ -10,27 +13,30 @@ type PeoNode struct {
 }
 
 func main() {
-	fmt.Println("####################single link###################################")
+	fmt.Println("####################single link#1##################################")
 	head := &PeoNode{Name: "head"}
 	p1 := &PeoNode{Name: "p1", Age: 11, Num: 1}
 	p2 := &PeoNode{Name: "p2", Age: 12, Num: 2}
 	p3 := &PeoNode{Name: "p3", Age: 13, Num: 3}
 	p4 := &PeoNode{Name: "p4", Age: 14, Num: 4}
 
-	insertLink2(head, p2)
-	insertLink2(head, p4)
-	insertLink2(head, p1)
-	insertLink2(head, p3)
+	//insertLink2(head, p2)
+	//insertLink2(head, p4)
+	//insertLink2(head, p1)
+	//insertLink2(head, p3)
+	insertLink(head, p2)
+	insertLink(head, p4)
+	insertLink(head, p1)
+	insertLink(head, p3)
 
 	showLink(head)
 
-	fmt.Println()
 	delLink(head, 2)
 	showLink(head)
 
 }
 
-//列表最后插入
+//列表最后插入,for循环将指针指到尾
 func insertLink(head, newnode *PeoNode) {
 	tmp := head
 	for {
@@ -40,25 +46,6 @@ func insertLink(head, newnode *PeoNode) {
 		tmp = tmp.Next
 	}
 	tmp.Next = newnode
-
-}
-
-//遍历链表
-func showLink(head *PeoNode) {
-	tmp := head
-	if tmp.Next == nil {
-		fmt.Println("link is empty")
-		return
-	}
-
-	for {
-		fmt.Printf("[%d,%s,%d] -> ", tmp.Num, tmp.Name, tmp.Age)
-
-		if tmp.Next == nil {
-			break
-		}
-		tmp = tmp.Next
-	}
 
 }
 
@@ -85,6 +72,27 @@ func insertLink2(head, newnode *PeoNode) {
 		tmp.Next = newnode
 
 	}
+
+}
+
+//遍历链表
+func showLink(head *PeoNode) {
+
+	tmp := head
+	if tmp.Next == nil {
+		fmt.Println("link is empty")
+		return
+	}
+
+	for {
+		fmt.Printf("[%d,%s,%d] -> ", tmp.Num, tmp.Name, tmp.Age)
+
+		if tmp.Next == nil {
+			break
+		}
+		tmp = tmp.Next
+	}
+	fmt.Println()
 
 }
 
