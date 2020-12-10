@@ -11,6 +11,7 @@ type Stu struct {
 	Next *Stu
 }
 
+//链表添加
 func AddLink2(head, node *Stu) {
 	tmp := head
 	for {
@@ -22,10 +23,12 @@ func AddLink2(head, node *Stu) {
 	tmp.Next = node
 }
 
+//选择头部
 func SelectHead(Size, no int) int {
 	return Size % no
 }
 
+//遍历所有
 func showHLink(heads []Stu) {
 	for _, head := range heads {
 		tmp := head
@@ -34,7 +37,7 @@ func showHLink(heads []Stu) {
 			return
 		}
 		for {
-			fmt.Printf("[%d,%s] -> ", tmp.Id, tmp.Name)
+			fmt.Printf("[%d,%v] -> ", tmp.Id, tmp.Name)
 
 			if tmp.Next == nil {
 				break
@@ -46,19 +49,22 @@ func showHLink(heads []Stu) {
 
 }
 
+//生成模拟数据
 func defaultStus(num int) []*Stu {
 	ss := []*Stu{}
 	for i := 0; i < num; i++ {
-		s := &Stu{Name: "s" + strconv.Itoa(i), Id: i}
+		s := &Stu{Name: "student" + strconv.Itoa(i), Id: i}
 		ss = append(ss, s)
 	}
 	return ss
 }
 
-func showH(h []*Stu) {
+//查看头部数组
+func showH(h []Stu) {
 	for _, j := range h {
 		fmt.Printf("[%d,%s] -> ", j.Id, j.Name)
 	}
+	fmt.Println()
 
 }
 
@@ -70,10 +76,7 @@ func main() {
 		headLink[i] = p
 	}
 
-	//fmt.Println(len(headLink))
-	//for i := 0; i < len(headLink); i++ {
-	//	fmt.Printf("%v\n", headLink[i])
-	//}
+	showH(headLink)
 
 	s1 := defaultStus(50)
 	for _, j := range s1 {

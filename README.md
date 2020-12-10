@@ -13,6 +13,8 @@
 -  单环链表 [circle_link](https://github.com/miiniper/data_structure/blob/master/circle_link.go)
 ## 树
 - 二叉树 [Btree](https://github.com/miiniper/data_structure/blob/master/tree/btree.go)
+## hash表
+- 简单哈希表 [hash](https://github.com/miiniper/data_structure/blob/master/tree/hash.go)
 
 ## 排序 [sort](https://github.com/miiniper/data_structure/blob/master/sort.go)
 - 选择排序
