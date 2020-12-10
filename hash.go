@@ -68,8 +68,11 @@ func showH(h []Stu) {
 
 }
 
+//查询 todo
+//修改 todo
+//删除 todo
+
 func main() {
-	//todo
 	headLink := make([]Stu, 7)
 	for i := 0; i < 7; i++ {
 		p := Stu{Name: "head" + strconv.Itoa(i)}

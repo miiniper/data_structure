@@ -14,7 +14,7 @@
 ## 树
 - 二叉树 [Btree](https://github.com/miiniper/data_structure/blob/master/tree/btree.go)
 ## hash表
-- 简单哈希表 [hash](https://github.com/miiniper/data_structure/blob/master/tree/hash.go)
+- 简单哈希表 [hash](https://github.com/miiniper/data_structure/blob/master/hash.go)
 
 ## 排序 [sort](https://github.com/miiniper/data_structure/blob/master/sort.go)
 - 选择排序
@@ -25,6 +25,12 @@
 ## examples
 -  约瑟夫问题:单循环链表实现：[Josephus](https://github.com/miiniper/data_structure/blob/master/examples/josephus.go)
 
+## 说明
+1. 数组：插入快，存取快；查找慢，删除慢
+2. 队列：先进先出，栈：后进先出
+3. 链表：插入快删除快，查找慢
+4. 二叉树：查找，删除，插入快；删除算法复杂，存在不平衡风险
+5. 哈希表：查找，插入；对存储空间利用不充分
 
 
 
