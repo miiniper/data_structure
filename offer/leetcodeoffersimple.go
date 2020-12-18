@@ -5,16 +5,6 @@ import (
 	"strings"
 )
 
-func main() {
-	//a := []int{1, 3, 4, 4, 6, 8, 9, 6, 5, 4, 3, 0}
-	//fmt.Println(findRepeatNumber(a))
-	//arr2 := [][]int{{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30}}
-	//findNumberIn2DArray(arr2, 5)
-	//s := "We are happy."
-	//fmt.Println(replaceSpace(s))
-	fmt.Println(fib2(6))
-}
-
 //给一个数组找出重复数字
 func findRepeatNumber(nums []int) []int {
 	m := make(map[int]int)
@@ -81,4 +71,111 @@ func fib2(n int) int {
 		f2 = sum
 	}
 	return sum % 1000000007
+}
+
+//股票最大收益
+func maxProfit(prices []int) int {
+	//tmp := prices[0]
+	res := 0
+	for j := 0; j < len(prices); j++ {
+		for i := j + 1; i < len(prices); i++ {
+			r := prices[i] - prices[j]
+			if res < r {
+				res, r = r, res
+			}
+		}
+
+	}
+
+	return res
+}
+
+func max(a int, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+//不含重复字符子串的最大长度
+//abcabcbb
+func lengthOfLongestSubstring(s string) int {
+	left := 0
+	le := 0
+
+	m1 := make(map[uint8]int)
+
+	for right := 0; right < len(s); right++ {
+		if j, ok := m1[s[right]]; ok {
+			left = max(left, j)
+		}
+
+		m1[s[right]] = right + 1
+		le = max(right-left+1, le)
+	}
+	return le
+}
+
+//三数之和
+func threeSum(arr []int) [][3]int {
+	res := [][3]int{}
+	for i := 0; i < len(arr); i = i + 3 {
+		for j := i + 1; j < len(arr); j = j + 2 {
+			for k := j + 1; k < len(arr); k++ {
+				if arr[i]+arr[j]+arr[k] == 0 {
+					res = append(res, [3]int{arr[i], arr[j], arr[k]})
+					//fmt.Println(res)
+				}
+				//fmt.Println(i, j, k)
+			}
+		}
+	}
+	//res =res[][:2]
+	return removeThreeSum(res)
+}
+
+func removeThreeSum(arr [][3]int) [][3]int {
+	res := [][3]int{}
+	m1 := make(map[[3]int]int)
+
+	for i := 0; i < len(arr); i++ {
+		if _, ok := m1[arr[i]]; ok {
+			continue
+		}
+		res = append(res, arr[i])
+		m1[arr[i]] = i + 1
+	}
+	return res
+
+}
+
+//数组去重
+func removeNumArray(arr []int) []int {
+	var res []int
+	m1 := make(map[int]int)
+	for i := 0; i < len(arr); i++ {
+		if _, ok := m1[arr[i]]; ok {
+			continue
+		}
+		res = append(res, arr[i])
+		m1[arr[i]] = i + 1
+	}
+	return res
+}
+
+//一下是测试用的
+//main is demo test
+func main() {
+	//a := []int{1, 3, 4, 4, 6, 8, 9, 6, 5, 4, 3, 0}
+	//fmt.Println(findRepeatNumber(a))
+	//arr2 := [][]int{{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30}}
+	//findNumberIn2DArray(arr2, 5)
+	//s := "We are happy."
+	//fmt.Println(replaceSpace(s))
+	//fmt.Println(maxProfit(a))
+	//s := "pwwkew"
+	//a := []int{-1, 0, 1, 2, -1, -4}
+	a := []int{0, 0, 0, 0, 0}
+	fmt.Println(threeSum(a))
+
 }
