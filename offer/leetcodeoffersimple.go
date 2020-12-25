@@ -163,10 +163,24 @@ func removeNumArray(arr []int) []int {
 	return res
 }
 
+func insertSort(array []int) []int {
+	for i := 1; i < len(array); i++ {
+		for j := i; j > 0; j-- {
+			if array[j] < array[j-1] {
+				array[j], array[j-1] = array[j-1], array[j]
+			} else {
+				break
+			}
+		}
+	}
+	//	fmt.Println(array)
+	return array
+}
+
 //一下是测试用的
 //main is demo test
 func main() {
-	//a := []int{1, 3, 4, 4, 6, 8, 9, 6, 5, 4, 3, 0}
+	a := []int{1, 3, 4, 4, 6, 8, 9, 6, 5, 4, 3, 0}
 	//fmt.Println(findRepeatNumber(a))
 	//arr2 := [][]int{{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30}}
 	//findNumberIn2DArray(arr2, 5)
@@ -175,7 +189,7 @@ func main() {
 	//fmt.Println(maxProfit(a))
 	//s := "pwwkew"
 	//a := []int{-1, 0, 1, 2, -1, -4}
-	a := []int{0, 0, 0, 0, 0}
-	fmt.Println(threeSum(a))
+	//a := []int{0, 0, 0, 0, 0}
+	fmt.Println(insertSort(a))
 
 }

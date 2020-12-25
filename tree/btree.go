@@ -264,6 +264,16 @@ func demoDelete(t *Node) {
 	Bfs(t2)
 }
 
+//翻转二叉树
+func invertTree(root *Node) *Node {
+	if root == nil {
+		return nil
+	}
+
+	root.Right, root.Left = invertTree(root.Left), invertTree(root.Right)
+	return root
+}
+
 //测试数组
 var array = []int{100, 114, 62, 123, 78, 45, 43, 70, 89, 90}
 
