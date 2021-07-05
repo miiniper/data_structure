@@ -6,6 +6,7 @@ import (
 )
 
 // Event 参考地址 https://golang.org/ref/spec#Size_and_alignment_guarantees
+// 视频解析 ：https://www.bilibili.com/video/BV1Ja4y1i7AF?from=search&seid=11845169762769004814
 
 type Demo1 struct {
 	NS      bool  `json:"ns"`      //1
